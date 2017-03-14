@@ -15,6 +15,7 @@
                 <span ng-show="song.playing && !hovered">{{ $index + 1 }}</span>
                 <a class="album-song-button" ng-show="song.playing && hovered" ng-click="album.songPlayer.play(song)"><span class="ion-play"></span></a>
                 <a class="album-song-button" ng-show="song.playing" ng-click="album.songPlayer.pause(song)"><span class="ion-pause"></span></a>
+            </td>
             <td class="song-item-title">{{song.item.title}}</td>
             <td class="song-item-duration">{{song.duration}}</td>
         </tr>
