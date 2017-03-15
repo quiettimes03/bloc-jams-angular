@@ -1,57 +1,47 @@
-(function(){
-    function SongPlayer(){
-        var SongPlayer = {};
+(function() {
+     function SongPlayer() {
+          var SongPlayer = {};
 
-        var currentSong = null;
+          var currentSong = null;
+          var currentBuzzObject = null;
 
-        /**
-        *@desc Buzz object audio form-inline
-        *@type {Object}
-        */
-        var currentBuzzObject = null;
+          var setSong = function(song){
+              if (currentBuzzObject){
+                  currentBuzzObject.stop();
+                  currentSong.playing = null;
+              }
 
-        /**
-        *@function setSong
-        *@desc Stops currently playing song and loads new audio file as currentBuzzObject
-        *@param {Object} song
-        */
+              currentBuzzObject = new buzz.sound(song.audioUrl, {
+                formats: ['mp3'],
+                preload: true
+              });
+              currentSong = song;
+          };
 
-        var setSong = function(song){
-          if (currentBuzzObject){
-            currentBuzzObject.stop();
-            currentSong.playing = null;
-          }
+          SongPlayer.play = function(song) {
+            if (currentSong !== song) {
+                setSong(song);
+                currentBuzzObject.play();
+                song.playing = true;
 
-          currentBuzzObject = new buzz.sound(song.audioUrl, {
-            formats: ['mp3'],
-            preload: true
-          });
-
-          currentSong = song;
-        };
-
-        SongPlayer.play = function(song){
-          if (currentSong !== song){
-          setSong(song);
-          currentBuzzObject.play();
-          song.playing = true;
-
-        } else if (currentSong === song){
-            if (currentBuzzObject.isPaused()){
-              currentBuzzObject.play();
+          } else if (currentSong === song){
+                if (currentBuzzObject.isPaused()){
+                  currentBuzzObject.play();
+                }
             }
-          }
-        };
+          };
 
-        SongPlayer.pause = function(song){
-          currentBuzzObject.pause();
-          song.playing = false;
-        };
+          SongPlayer.pause = function(song){
+              currentBuzzObject.pause();
+              song.playing = false;
+          };
 
-        return SongPlayer;
-    }
+          return SongPlayer;
+     }
 
-    angular
-    .module ('blocJams')
-    .factory('SongPlayer', SongPlayer);
-})();
+
+
+     angular
+         .module('blocJams')
+         .factory('SongPlayer', SongPlayer);
+ })();
