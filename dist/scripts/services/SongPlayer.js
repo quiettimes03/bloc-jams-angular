@@ -97,14 +97,12 @@
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
 
-            if (currentSongIndex > 4){
-              currentBuzzObject.stop();
-              SongPlayer.currentSong.playing = null;
-            } else {
-                var song = currentAlbum.songs[currentSongIndex];
-                setSong(song);
-                playSong(song);
+            if (currentSongIndex >= currentAlbum.songs.length){
+              currentSongIndex = 0;
             }
+            var song = currentAlbum.songs[currentSongIndex];
+            setSong(song);
+            playSong(song);
           };
 
           return SongPlayer;
