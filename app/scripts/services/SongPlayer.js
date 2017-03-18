@@ -101,8 +101,8 @@
               currentSongIndex = 0;
             }
             var song = currentAlbum.songs[currentSongIndex];
-            setSong(song);
-            playSong(song);
+              setSong(song);
+              playSong(song);
           };
 
           return SongPlayer;
