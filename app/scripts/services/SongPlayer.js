@@ -100,15 +100,9 @@
             if (currentSongIndex >= currentAlbum.songs.length){
               currentSongIndex = 0;
             }
-<<<<<<< HEAD
-            var song = currentAlbum.songs[currentSongIndex];
-              setSong(song);
-              playSong(song);
-=======
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
                 playSong(song);
->>>>>>> Checkpoint9
           };
 
           return SongPlayer;
