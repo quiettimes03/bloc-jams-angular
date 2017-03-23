@@ -24,7 +24,11 @@
             <h3 class="artist-name">{{playerBar.albumData.artist}}</h3>
             <div class="seek-control">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <seek-bar></seek-bar>
+=======
+                <seek-bar value="{{ playerBar.songPlayer.currentTime }}" max="{{ playerBar.songPlayer.currentSong.duration }}" on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
+>>>>>>> Checkpoint10
 =======
                 <seek-bar value="{{ playerBar.songPlayer.currentTime }}" max="{{ playerBar.songPlayer.currentSong.duration }}" on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
 >>>>>>> Checkpoint10
