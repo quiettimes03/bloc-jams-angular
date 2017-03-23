@@ -1,6 +1,6 @@
 (function(){
     function seekBar($document){
-      
+
         var calculatePercent = function(seekBar, event) {
           var offsetX = event.pageX - seekBar.offset().left;
           var seekBarWidth = seekBar.width();
@@ -62,16 +62,6 @@
                     $document.unbind('mouseup.thumb');
                 });
 
-            };
-
-            var notifyOnChange = function(newValue){
-              if (typeof scope.onChange === 'function'){
-                scope.onChange({value: newValue});
-              }
-            };
-
-            scope.thumbStyle = function(){
-              return{left: percentString()};
             };
 
             var notifyOnChange = function(newValue){
