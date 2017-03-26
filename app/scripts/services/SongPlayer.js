@@ -32,7 +32,7 @@
                       SongPlayer.currentTime = currentBuzzObject.getTime();
                   });
               });
-              
+
               SongPlayer.currentSong = song;
           };
 
@@ -137,6 +137,20 @@
           SongPlayer.setCurrentTime = function(time) {
               if (currentBuzzObject) {
                 currentBuzzObject.setTime(time);
+              }
+          };
+
+/**
+*@function volume
+*@desc adjust song volume
+*/
+
+          SongPlayer.volume = null;
+
+          SongPlayer.setVolume = function(value){
+              if (currentBuzzObject){
+                SongPlayer.volume = value;
+                currentBuzzObject.setVolume(SongPlayer.volume);
               }
           };
 
